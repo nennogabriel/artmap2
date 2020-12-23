@@ -24,6 +24,7 @@ const Home = () => {
   const [latlong, setLatlong] = useState('-20.648990, -40.481751');
   const [latitude, setLatitude] = useState(0);
   const [longitude, setLongitude] = useState(0);
+  const [distance, setDistance] = useState(15);
   const [icon, setIcon] = useState('heart');
 
   const [line1, setLine1] = useState('Text Line 1');
@@ -36,7 +37,7 @@ const Home = () => {
 
   function handleChangeLatitudeLongitude() {
     const [lat, long] = latlong.split(',').map((i) => Number(i));
-    if (lat !== latitude && long !== longitude) {
+    if (lat !== latitude || long !== longitude) {
       setLatitude(0);
       setTimeout(() => {
         setLatitude(lat);
@@ -50,6 +51,25 @@ const Home = () => {
         }, 100);
       }, 100);
     }
+  }
+
+  function handleChangeDistance(distance) {
+    setDistance((prevState) => {
+      if (prevState !== distance) {
+        const lat = latitude;
+        setLatitude(0);
+        setTimeout(() => {
+          setLatitude(lat);
+          setTimeout(() => {
+            setLatitude(0);
+          }, 100);
+          setTimeout(() => {
+            setLatitude(lat);
+          }, 100);
+        }, 100);
+      }
+      return distance;
+    });
   }
 
   return (
@@ -98,6 +118,15 @@ const Home = () => {
             <img src={house} height="auto" width="50px" alt="house icon" />
           </button>
         </Flex>
+        <Flex>
+          <button type="button" onClick={() => handleChangeDistance(15)}>
+            Far
+          </button>
+          <button type="button" onClick={() => handleChangeDistance(17)}>
+            Near
+          </button>
+        </Flex>
+        <p>{distance}</p>
 
         <input
           name="font1"
@@ -125,7 +154,7 @@ const Home = () => {
               {latitude !== 0 && (
                 <MapContainer
                   center={[latitude, longitude]}
-                  zoom={13}
+                  zoom={distance}
                   scrollWheelZoom={false}
                   style={{
                     width: 'calc(100% + 200px)',

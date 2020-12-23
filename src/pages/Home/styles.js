@@ -19,6 +19,11 @@ export const Aside = styled.div`
 
 export const Flex = styled.div`
   display: flex;
+
+  button {
+    padding: 2px 8px;
+    margin-right: 1rem;
+  }
 `;
 
 export const MapWrapper = styled.div`
@@ -39,7 +44,6 @@ export const BoardIn = styled.div`
   border: 7px solid black;
   padding: 17px;
   > div {
-    background: green;
     height: 100%;
     position: relative;
     overflow: hidden;
@@ -63,6 +67,7 @@ export const TextContainer = styled.div`
     font-family: ${(props) => props.fontMain};
     font-size: 140px;
     background: white;
+    color: #dd5050;
   }
   footer {
     font-family: ${(props) => props.fontFooter};
