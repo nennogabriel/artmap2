@@ -27,7 +27,7 @@ const Home = () => {
   const [icon, setIcon] = useState('heart');
 
   const [line1, setLine1] = useState('Text Line 1');
-  const [line2, setLine2] = useState('Text Line 2');
+  const [line2, setLine2] = useState('WO ALLES BEGGAN');
   const [line3, setLine3] = useState('Text Line 3');
 
   const [font1, setFont1] = useState('MissLeGatees Pro');

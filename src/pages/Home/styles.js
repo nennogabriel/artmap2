@@ -53,16 +53,20 @@ export const TextContainer = styled.div`
   left: 0;
   right: 0;
   text-align: center;
+  z-index: 999;
   header {
     font-family: ${(props) => props.fontHeader};
-    font-size: 100px;
+    font-size: 120px;
+    background-image: linear-gradient(to top, white, transparent);
   }
   main {
     font-family: ${(props) => props.fontMain};
-    font-size: 139px;
+    font-size: 140px;
+    background: white;
   }
   footer {
     font-family: ${(props) => props.fontFooter};
-    font-size: 16px;
+    font-size: 32px;
+    background: white;
   }
 `;
