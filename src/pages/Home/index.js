@@ -118,6 +118,9 @@ const Home = () => {
             <img src={house} height="auto" width="50px" alt="house icon" />
           </button>
         </Flex>
+        <button type="button" onClick={() => setIcon('none')}>
+          Empty
+        </button>
         <Flex>
           <button type="button" onClick={() => handleChangeDistance(15)}>
             Far
@@ -165,12 +168,13 @@ const Home = () => {
                   <TileLayer
                     url={`https://api.mapbox.com/styles/v1/nennogabriel/ckixugzdw1yx819odgzvhmhd7/tiles/256/{z}/{x}/{y}@2x?access_token=${apiKey}`}
                   />
-                  {icon === 'heart' ? (
+                  {icon === 'heart' && (
                     <Marker
                       position={[latitude, longitude]}
                       icon={heartIcon}
                     ></Marker>
-                  ) : (
+                  )}
+                  {icon === 'house' && (
                     <Marker
                       position={[latitude, longitude]}
                       icon={houseIcon}
